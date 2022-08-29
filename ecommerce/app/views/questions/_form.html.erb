@@ -1,0 +1,35 @@
+<div class="card-body">
+  <%= form_with(model: [@car, @question]) do |form| %>
+    <% if question.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+        <ul>
+          <% question.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field form-group col-10 mx-auto">
+      <%= form.label "TOPIC", class:"col-form-label" %><br>
+      <%= form.text_field :title, class:"form-control form-control-lg field", required: true %>
+    </div>
+
+    <div class="field form-group col-10 mx-auto">
+      <%= form.label "QUESTION", class:"col-form-label" %><br>
+      <%= form.rich_text_area :content, class:"form-control field question-form--text-area", required: true %>
+    </div>
+
+    <%= form.hidden_field :user_id, value: current_user.id %>
+
+    &nbsp <br>
+
+    <div class="actions form-group text-end questions-form--submit-div">
+      <%= form.submit "Post Question", class:"btn btn-primary btn-lg question-form--btn"%> &nbsp &nbsp
+      <%= link_to 'Back', car_path(params[:car_id]), class:"btn btn-warning btn-lg question-form--btn" %>
+    </div>
+      
+  <% end %>
+</div>

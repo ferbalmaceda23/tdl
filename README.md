@@ -4,7 +4,7 @@
 - Balmaceda, Fernando
 - Craviotto, Mateo
 - Lazzaro, Melina
-- Diem, Walter Gabriel (walgab)
+- Diem, Walter Gabriel
 
 ## Corrector:
 - Ferrigno, Leandro
